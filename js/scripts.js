@@ -2,19 +2,26 @@ $(document).ready(function() {
   $("#formOne").submit(function() {
   event.preventDefault();
   $(".well").show();
-  var numberInput = $("input#plainNumber").val();
 
-   var romanString = '';
-   var roman = ['M','CM','D','CD','C','XC','L','XL','X','IX','V','IV','I'];
-   var numeral = [1000,900,500,400,100,90,50,40,10,9,5,4,1];
-   for (var i =0; i < numeral.length; i++) {
-   	while ( numberInput >= numeral[i] ) {
-       	romanString += roman[i];
-           numberInput -= numeral[i];
-       }
-   }
+  var textInput = ($("input#inputSentence").val()).toLowerCase();
+  var noSpaceStr = textInput.replace(/\W/g, '');
 
-   $(".answer").text(romanString)
+  var sqrtInput = Math.sqrt(noSpaceStr.length);
+  console.log(sqrtInput);
+
+  var rowXcolumn = Math.ceil(sqrtInput);
+  console.log(rowXcolumn);
+
+  var array = noSpacesStr.split('',rowXcolumn);
+  console.log()
+
+
+
+
+
+
+
+   $(".answer").text(noSpaceStr);
 
   });
 });
